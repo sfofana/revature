@@ -1,0 +1,33 @@
+package com.app.model;
+
+import java.io.Serializable;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@Entity
+@Table
+public class SuperBeing implements Serializable{
+
+	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@OneToOne
+	private User user;
+	private int superBeingId;
+	private String firstName;
+	private String lastName;
+	private int strength;
+	private int constitution;
+	private int agility;
+	private int intelligence;
+	private String abilities;
+	@OneToOne
+	private Alignment alignment;
+	@OneToOne
+	private Team team;
+	
+	
+	
+}

@@ -1,0 +1,48 @@
+package com.app.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.app.model.SuperBeing;
+import com.app.service.SuperBeingService;
+
+@RestController
+@CrossOrigin(origins = "http://localhost:4200")
+public class SuperBeingController {
+
+	@Autowired
+	private SuperBeingService service;
+	
+	@GetMapping("/superBeing")
+	public List<SuperBeing> getAllSuperBeings() {
+		// TODO Auto-generated method stub
+		return appDao.findAll();
+	}
+
+	@GetMapping("/superBeing/{id}")
+	public SuperBeing getSuperBeingById(int id) {
+		// TODO Auto-generated method stub
+		return appDao.findById(id).get();
+	}
+
+	@PostMapping("/superBeing")
+	public SuperBeing addSuperBeing(SuperBeing superBeing) {
+		// TODO Auto-generated method stub
+		return appDao.save(superBeing);
+	}
+
+	@PutMapping("/superBeing")
+	public SuperBeing updateSuperBeing(SuperBeing superBeing) {
+		// TODO Auto-generated method stub
+		return appDao.save(superBeing);
+	}
+
+	@DeleteMapping("/superBeing/{id}")
+	public void deleteSuperBeing(int id) {
+		// TODO Auto-generated method stub
+		appDao.deleteById(id);
+	}
+}
